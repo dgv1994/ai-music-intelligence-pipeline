@@ -1,5 +1,5 @@
 
-## AI Music Intelligence Pipeline
+# AI Music Intelligence Pipeline
 
 Автоматизированный пайплайн синхронизации музыкальных данных между Last.fm и Notion с использованием принципов Domain-Driven Design, Test Automation и CI/CD.
 
@@ -31,16 +31,75 @@ The project follows Vladimir Khorikov's principles of testable architecture.
   <img src="docs/architecture.png" width="900">
 </p>
 
-## Тестирование
+## Testing Strategy
+
+Проект построен с использованием рекомендаций Владимира Хорикова по тестируемой архитектуре.
 
 ### Unit Tests
 
+Проверяют отдельные доменные правила.
+
+Примеры:
+
+- test_should_reject_empty_track_name
+- test_should_reject_empty_artist
+- test_should_raise_duplicate_error_when_track_exists
+- test_map_track_payload_returns_normalized_track
+- test_should_normalize_track_key
+
+Покрываемые компоненты:
+
 - Mapper
 - Validator
-
+- Domain Rules
+- 
 ### Module Tests
 
+Проверяют поведение Application Service.
+
+Примеры:
+
+- test_should_sync_new_track
+- test_should_sync_multiple_tracks
+- test_should_not_save_duplicate_track
+- test_should_sync_track_without_album
+
+Покрываемые компоненты:
+
 - TrackService
+- Repository Contract
+- LastFm Contract
+
+## CI/CD
+
+GitHub Actions автоматически выполняет:
+
+- Checkout Repository
+- Install Dependencies
+- Run Pytest
+- Generate JUnit Report
+
+Workflow запускается при каждом push в master.
+
+## Requirements Traceability Matrix
+
+Трассировка требований ведётся в Notion.
+
+Связи:
+
+User Story → Test Case → Pytest Test → CI Result
+
+Пример:
+
+UStory JSON Processing
+↓
+TS-T22
+↓
+test_map_track_payload_returns_normalized_track
+↓
+GitHub Actions
+↓
+PASS
 
 ## Технологии
 
