@@ -103,15 +103,15 @@ PASS
 
 ##  Documentation
 
-- User Stories
-- - RTM
-- Test Strategy
-- Architecture
-- Glossary
-- Meeting Notes
+| Artifact | Link |
+|-----------|------|
+| User Stories | Notion |
+| RTM | Notion |
+| Test Strategy | Notion |
+| Architecture | Notion |
 
 Документация проекта ведётся в Notion.
-[https://www.notion.so/AI-Music-Intelligence-Pipeline-3739f31d991b80379464ee6d12c3f1a2?source=copy_link]
+https://www.notion.so/AI-Music-Intelligence-Pipeline-3739f31d991b80379464ee6d12c3f1a2?source=copy_link
 
 ## Repository Structure
 
