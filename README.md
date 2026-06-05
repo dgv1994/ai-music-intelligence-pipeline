@@ -111,6 +111,7 @@ PASS
 - Meeting Notes
 
 Документация проекта ведётся в Notion.
+[https://www.notion.so/AI-Music-Intelligence-Pipeline-3739f31d991b80379464ee6d12c3f1a2?source=copy_link]
 
 ## Repository Structure
 
