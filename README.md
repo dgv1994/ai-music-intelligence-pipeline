@@ -2,17 +2,9 @@
 
 Проект автоматической синхронизации музыкальной истории прослушивания из Last.fm в Notion.
 
-## Архитектура
+## Architecture
 
-Last.fm API
-↓
-Mapper
-↓
-Track Model
-↓
-TrackService
-↓
-Notion Repository
+![Architecture](docs/architecture.png)
 
 ## Тестирование
 
