@@ -1,6 +1,22 @@
-# AI Music Intelligence Pipeline
 
-Проект автоматической синхронизации музыкальной истории прослушивания из Last.fm в Notion.
+## AI Music Intelligence Pipeline
+
+Автоматизированный пайплайн синхронизации музыкальных данных между Last.fm и Notion с использованием принципов Domain-Driven Design, Test Automation и CI/CD.
+
+## Project Overview
+
+Проект получает данные о прослушанных треках из Last.fm API, преобразует их в доменную модель, валидирует бизнес-правила и сохраняет результаты в Notion Database.
+
+Основная цель проекта — продемонстрировать навыки:
+
+- Python
+- Pytest
+- Test Automation
+- Domain Modeling
+- CI/CD
+- GitHub Actions
+- Requirements Traceability
+- API Testing
 
 ## Architecture
 The project follows Vladimir Khorikov's principles of testable architecture.
