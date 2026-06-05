@@ -4,7 +4,13 @@
 
 ## Architecture
 
-![Architecture](docs/architecture.png)
+<p align="center">
+  <img src="docs/architecture.png" width="900">
+</p>
+
+<p align="center">
+  Architecture based on Horikov's testability principles
+</p>
 
 ## Тестирование
 
