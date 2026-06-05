@@ -105,13 +105,13 @@ PASS
 
 | Artifact | Link |
 |-----------|------|
-| User Stories | Notion |
-| RTM | Notion |
-| Test Strategy | Notion |
-| Architecture | Notion |
+| User Stories | [Notion](https://www.notion.so/User-Stories-3739f31d991b8100b0c0cca0feffe34c?source=copy_link) |
+| RTM | [Notion](https://www.notion.so/eda9f31d991b82e99ec70118af539d76?v=d9e9f31d991b82d588498826b3c8f33c&source=copy_link) |
+| Test Strategy | [Notion](https://www.notion.so/Test-Strategy-3739f31d991b8150af1cd780e3d5967a?source=copy_link) |
+| Architecture | [Notion](https://www.notion.so/Architecture-3739f31d991b8178924df52500fbbc04?source=copy_link) |
 
 Документация проекта ведётся в Notion.
-https://www.notion.so/AI-Music-Intelligence-Pipeline-3739f31d991b80379464ee6d12c3f1a2?source=copy_link
+
 
 ## Repository Structure
 
