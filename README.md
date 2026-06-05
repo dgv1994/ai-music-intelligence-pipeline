@@ -52,7 +52,7 @@ The project follows Vladimir Khorikov's principles of testable architecture.
 - Mapper
 - Validator
 - Domain Rules
-- 
+
 ### Module Tests
 
 Проверяют поведение Application Service.
@@ -101,16 +101,50 @@ GitHub Actions
 ↓
 PASS
 
+##  Documentation
+
+- User Stories
+- - RTM
+- Test Strategy
+- Architecture
+- Glossary
+- Meeting Notes
+
+Документация проекта ведётся в Notion.
+
+## Repository Structure
+
+application/
+├── track_service.py
+
+domain/
+├── models.py
+├── mapper.py
+├── validator.py
+├── contracts.py
+├── errors.py
+
+tests/
+├── test_mapper.py
+├── test_validator.py
+├── test_track_service.py
+
+.github/
+└── workflows/
+    └── tests.yml
+
 ## Технологии
 
 - Python
 - Pytest
+- Git
+- GitHub
+- GitHub Actions
 - Notion
+- Last.fm API
 - n8n
-- Zephyr Scale
 
-## Запуск тестов
+## Author
 
-```bash
-pytest
-```
+Dmitriy G.
+QA Automation Portfolio Project
