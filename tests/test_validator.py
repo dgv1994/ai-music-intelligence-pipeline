@@ -5,11 +5,15 @@ from unittest.mock import (
 )
 
 from domain.errors import (
-    DuplicateTrackError
+    DuplicateTrackError,
+    InvalidTrackNameError,
+    InvalidArtistError
 )
 
 from domain.validator import (
-    validate_track_uniqueness
+    validate_track_uniqueness,
+    validate_track_name,
+    validate_artist_name
 )
 
 from domain.models import (
@@ -39,3 +43,37 @@ def test_should_raise_duplicate_error_when_track_exists():
             repository,
             track
         )
+
+def test_should_reject_empty_track_name():
+
+    track = Track(
+        track="",
+        artist="Linkin Park",
+        album="Meteora",
+        track_key="numb-linkin park"
+    )
+
+    with pytest.raises(
+        InvalidTrackNameError
+    ):
+
+        validate_track_name(
+            track
+        )
+
+def test_should_reject_empty_artist():
+    
+    track = Track(
+        track="Numb",
+        artist="",
+        album="Meteora",
+        track_key="numb-linkin park"
+    )
+
+    with pytest.raises(
+        InvalidArtistError
+    ):
+
+        validate_artist_name(
+            track
+        )    
