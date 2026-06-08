@@ -1,6 +1,17 @@
+import pytest
+
 from domain.mapper import( map_track_payload,
     map_recent_tracks
 )
+
+from domain.validator import (
+    validate_artist_name
+)
+
+from domain.errors import (
+    InvalidArtistError
+    )
+
 from domain.models import Track
 
 def test_map_track_playload_returns_normalized_track():
@@ -35,7 +46,8 @@ def test_map_track_playload_returns_normalized_track():
     ])
 
 # Тест для функции map_recent_tracks, который проверяет,
-#  что она возвращает список треков из recenttracks.track в полезной нагрузке
+# что она возвращает список треков из recenttracks.track 
+# в полезной нагрузке
 def test_map_recent_tracks_returns_track_list():
 
     payload = {
@@ -214,6 +226,10 @@ def test_should_fail_with_empty_artist():
         }
     }
 
-    result = ( map_track_payload(payload) ) 
+    result = ( map_track_payload(payload) )
 
-    assert result.artist == ""
+    with pytest.raises(InvalidArtistError):
+
+        validate_artist_name(
+            result
+        )
