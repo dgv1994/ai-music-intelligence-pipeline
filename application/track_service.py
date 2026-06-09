@@ -82,18 +82,6 @@ class TrackService:
 
         return created_tracks
 
-    # Метод, который проверяет, существует ли трек в репозитории по ключу,
-    def sync_duplicate(
-        self,
-        track
-    ):
-
-        validate_track_uniqueness(
-            self.repository,
-            track
-        )
-
-        return True
     
     # Метод, который возвращает обложку трека, если она есть, иначе None
     def sync_cover(
