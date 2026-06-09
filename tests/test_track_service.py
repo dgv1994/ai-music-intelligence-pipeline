@@ -195,7 +195,7 @@ def test_should_sync_track_without_cover():
         result[0].track_key == "track 1-artist 1"
     )
 
-def test_sync_track_without_album():
+def test_should_sync_track_without_album():
 
     # Arrange
     repository = Mock()
