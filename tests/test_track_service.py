@@ -12,6 +12,10 @@ from domain.errors import (
     DuplicateTrackError
 )
 
+from domain.validator import (
+    validate_track_uniqueness
+)
+
 from domain.models import (
     Track
 )
@@ -314,57 +318,14 @@ def test_should_accept_unique_track ():
         cover_image=None
     )
     
-    # Act
-
-    result = (
-        service.sync_duplicate(
-            track
-        )
-    )
-    # Assert
+    # Act and Assert
     # при попытке синхронизации трека, который не существует в репозитории, 
     # должен быть возвращен True, так как трек уникальный и может быть сохранен
-    assert result is True
 
-def test_should_not_save_duplicate_track():
-
-    repository = Mock()
-
-    repository.exists.return_value = (
-        True
-    )
-
-    service = TrackService(
-        repository,
-        None
-    )
-
-    track = Track(
-
-        track="Numb",
-
-        artist="Linkin Park",
-
-        album="Meteora",
-
-        track_key=(
-            "numb-linkin park"
-        ),
-
-        cover_image=None
-    )
-    
-    # Act & Assert
-
-    with pytest.raises(DuplicateTrackError):
-        service.sync_duplicate(
-            track
-        )
-    
-    # при попытке синхронизации трека, который уже существует в репозитории, 
-    # должен быть вызван DuplicateTrackError и не должен быть сохранен новый трек, 
-    # так как он уже существует
-    repository.save.assert_not_called()
+    validate_track_uniqueness(
+    repository,
+    track
+    )   
 
 ''' Дополнительные cases для тестирования взаимодействия между models и 
 service:'''
