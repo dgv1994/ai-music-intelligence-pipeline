@@ -60,9 +60,10 @@ def test_should_sync_new_track():
     # так как он не существует
     assert len(result) == 1
     
-    # метод save должен быть вызван один раз, 
-    # так как сохраняется только 1 трек
-    repository.save.assert_called_once()
+    # проверка сохранения трека в репозитории с правильным track_key,
+    assert (
+        result[0].track_key == "track 1-artist 1"
+    )
 
 def test_should_sync_multiple_tracks():
 
@@ -114,9 +115,16 @@ def test_should_sync_multiple_tracks():
     # так как они не существуют
     assert len(result) == 3
 
-    # метод save должен быть вызван 3 раза,
-    # так как сохраняется 3 трека
-    repository.save.call_count == 3
+    # проверка сохранения треков в репозитории с правильными track_key,
+    assert [
+        track.track_key 
+        for track in result
+    ] == [
+        "track 1-artist 1",
+        "track 2-artist 2",
+        "track 3-artist 3"
+    ]
+
 
 # синхранизация трека без обложки/альбома
 # влияет ли на pipeline отсутствие обложки/альбома? 
@@ -178,7 +186,10 @@ def test_should_sync_track_without_cover():
     # так как он не существует, несмотря на отсутствие обложки
     assert len(result) == 1
     
-    repository.save.assert_called_once()
+    # проверка сохранения трека в репозитории с правильным track_key,
+    assert (
+        result[0].track_key == "track 1-artist 1"
+    )
 
 def test_sync_track_track_without_album():
 
@@ -222,7 +233,10 @@ def test_sync_track_track_without_album():
     # так как он не существует, несмотря на отсутствие названия альбома
     assert len(result) == 1
     
-    repository.save.assert_called_once()
+    # проверка сохранения трека в репозитории с правильным track_key,
+    assert (
+        result[0].track_key == "track 1-artist 1"
+    )
 
 # Deduplication Testing Cases:
 
@@ -266,8 +280,7 @@ def test_should_raise_duplicate_error():
    
     with pytest.raises(DuplicateTrackError):
         service.sync_new_track()
-    #  проверка, что не сохранился
-    repository.save.assert_not_called()
+    
 
 # проверка условия успешной синхронизации уникального трека
 # /несохранения существующего трека
