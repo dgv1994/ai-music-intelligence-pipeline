@@ -12,7 +12,7 @@ def map_recent_tracks(
         "track"
     ]
 
-# загрузка одного трека 
+# загрузка одного трека как доменную модель Track
 # и нормализация его track_key
 def map_track_payload(
     track
