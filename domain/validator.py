@@ -24,8 +24,9 @@ def validate_track_name(
     track
 ):
 
-    if not track.track:
-
+    # Treat None, empty string and whitespace-only strings as invalid
+    value = track.track
+    if value is None or not str(value).strip():
         raise (
             InvalidTrackNameError()
         )
@@ -36,8 +37,9 @@ def validate_artist_name(
     track
 ):
 
-    if not track.artist:
-
+    # Treat None, empty string and whitespace-only strings as invalid
+    value = track.artist
+    if value is None or not str(value).strip():
         raise (
             InvalidArtistError()
         )

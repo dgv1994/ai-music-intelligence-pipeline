@@ -53,7 +53,6 @@ def test_should_raise_duplicate_error_when_track_exists():
         None
     ]
 )
-
 def test_should_reject_invalid_track_name(
     track_name
 ):
@@ -72,7 +71,7 @@ def test_should_reject_invalid_track_name(
         validate_track_name(
             track
         )
-        
+
 def test_should_reject_empty_track_name():
 
     track = Track(
@@ -87,6 +86,33 @@ def test_should_reject_empty_track_name():
     ):
 
         validate_track_name(
+            track
+        )
+
+# параметризация для проверки различных невалидных артистов
+@pytest.mark.parametrize(
+    'artist_name',
+    [
+        "",
+        "   ",
+        None
+    ]
+)
+
+def test_should_reject_invalid_artist(artist_name):
+    
+    track = Track(
+        track="Numb",
+        artist=artist_name,
+        album="Meteora",
+        track_key="numb-linkin park"
+    )
+
+    with pytest.raises(
+        InvalidArtistError
+    ):
+
+        validate_artist_name(
             track
         )
 
