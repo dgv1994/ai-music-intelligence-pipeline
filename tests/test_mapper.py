@@ -195,14 +195,43 @@ def test_should_map_without_image():
     )
     assert result.cover_image is None
 
-def test_should_normalize_track_key():
+#проверка нормализации:
+#нижний регистр
+#верхний регистр
+#пробелы в начале и в конце строки
+@pytest.mark.parametrize(
+    'name, artist, expected_track_key',
+    [
+        (
+         "Long Long Road", 
+         "Ringo Starr", 
+         "long long road-ringo starr"
+        ),
+        (
+         ' LONG LONG ROAD ',
+         ' RINGO STARR ',  
+         'long long road-ringo starr'
+        ),
+        (
+         'long long road', 
+         'ringo starr',
+         'long long road-ringo starr'
+         )
+    ]
+)
+
+def test_should_normalize_track_key(
+    name,
+    artist,
+    expected_track_key
+):
 
     payload = {
 
-        "name": " NUMB ",
+        "name": name,
 
         "artist": {
-            "#text": " Linkin Park "
+            "#text": artist
         }
     }
 
@@ -213,7 +242,7 @@ def test_should_normalize_track_key():
     )
 
     assert result.track_key == (
-        "numb-linkin park"
+        expected_track_key
     )
 
 def test_should_fail_with_empty_artist():
