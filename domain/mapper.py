@@ -1,7 +1,7 @@
 from domain.models import (
     Track
 )
-
+# загрузка всех треков
 def map_recent_tracks(
     payload
 ):
@@ -12,6 +12,8 @@ def map_recent_tracks(
         "track"
     ]
 
+# загрузка одного трека 
+# и нормализация его track_key
 def map_track_payload(
     track
 ):
