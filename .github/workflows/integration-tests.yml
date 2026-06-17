@@ -1,0 +1,30 @@
+name: Integration Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  integration-tests:
+
+    runs-on: ubuntu-latest
+
+    env:
+      LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+      LASTFM_USER: ${{ secrets.LASTFM_USER }}
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.3"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run integration tests
+        run: |
+          PYTHONPATH=. pytest -v -m integration -v
