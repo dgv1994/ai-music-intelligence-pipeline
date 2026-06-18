@@ -30,6 +30,7 @@ jobs:
           --cov=domain \
           --cov=application \
           --cov=event_contracts \
+          --cov-config=.coveragerc \
           --cov-report=term \
           --junitxml=report.xml
     
