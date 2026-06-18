@@ -24,7 +24,14 @@ jobs:
 
       - name: Run unit tests
         run: |
-          PYTHONPATH=. pytest -v -m "not integration" --junitxml=report.xml
+          PYTHONPATH=. pytest \
+          -v \
+          -m "not integration" \
+          --cov=domain \
+          --cov=application \
+          --cov=contracts \
+          --cov-report=term \
+          --junitxml=report.xml
     
       - name: Upload Report
         uses: actions/upload-artifact@v4
