@@ -62,7 +62,7 @@ def test_should_include_track_name_in_payload():
 
     assert "Track" in payload
 
-def test_shuld_include_artist_in_payload():
+def test_should_include_artist_in_payload():
     
     track = Track(
         track="Numb",
